@@ -14,4 +14,6 @@ public class DataBroadcast {
         DataBroadcast.translationTimeMillisecond = (long) minutes * 60 * 1000;
     }
 
+    
+
 }
