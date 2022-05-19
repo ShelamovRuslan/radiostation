@@ -10,31 +10,14 @@ public class TestDrive{
 
     public static void TestDrive() {
 
-        BroadcastContext translation = new BroadcastContext();
-
-
-        Record one = new Song(
-                "330",
-                "Song 1",
-                "Song 1");
-        Record two = new Song(
-                "30",
-                "Song 2",
-                "Song 2");
-        Record free = new Song(
-                "30",
-                "Song 3",
-                "Song 3");
-        Record four = new Advertising(
-                "1",
-                "тайд"
-                );
-        Record five = new Interview(
-                "10",
-                "Петр"
-        );
-
-        translation.broadcastTime(120);
+        Broadcasting translation = new Broadcasting();
+     /*   Recording one = new Song("100", "tide", "Песня");
+        Recording two = new Interview("10", "tide");
+        Recording free = new Advertising("10", "tide");
+        Recording four = new Advertising("10", "tide");
+        Recording five = new Advertising("10", "tide");
+        translation.setRadioHost("Иван", 10);
+        translation.setDuration(120);
         translation.checkRec(one);
         translation.checkRec(two);
         translation.checkRec(free);
@@ -47,6 +30,21 @@ public class TestDrive{
         translation.addRec(five);
         translation.playList();
         translation.income();
+        translation.save();*/
+        translation.load();
+        translation.playList();
+
+        /**
+         *         .setRadioHost();
+         *         .setGuestRadioHost();
+         *         .setDuration();
+         *         .checkRec(one);
+         *         .addRec(one);
+         *         .playList();
+         *         .income();
+         *         .save();
+         *         .load();
+         */
 
     }
 }
