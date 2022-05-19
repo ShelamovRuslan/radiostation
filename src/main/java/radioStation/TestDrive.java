@@ -10,30 +10,31 @@ public class TestDrive{
 
     public static void TestDrive() {
 
-        TranslationContext translation = new TranslationContext();
-        DataBroadcast.setTranslationTime(120);
+        BroadcastContext translation = new BroadcastContext();
 
-        Song one = new Song(
-                "10",
+
+        Record one = new Song(
+                "330",
                 "Song 1",
                 "Song 1");
-        Song two = new Song(
-                "10",
+        Record two = new Song(
+                "30",
                 "Song 2",
                 "Song 2");
-        Song free = new Song(
-                "10",
+        Record free = new Song(
+                "30",
                 "Song 3",
                 "Song 3");
-        Song four = new Song(
+        Record four = new Advertising(
+                "1",
+                "тайд"
+                );
+        Record five = new Interview(
                 "10",
-                "Song 4",
-                "Song 4");
-        Song five = new Song(
-                "10",
-                "Song 5",
-                "Song 5");
+                "Петр"
+        );
 
+        translation.broadcastTime(120);
         translation.checkRec(one);
         translation.checkRec(two);
         translation.checkRec(free);
@@ -44,10 +45,8 @@ public class TestDrive{
         translation.addRec(free);
         translation.addRec(four);
         translation.addRec(five);
+        translation.playList();
+        translation.income();
 
-        for (Record rec : DataBroadcast.PlayList)
-            System.out.println(rec);
-       /* int i = 5;
-        System.out.println(++i - ++i);*/
     }
 }

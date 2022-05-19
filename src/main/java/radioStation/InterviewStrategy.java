@@ -1,6 +1,6 @@
 package radioStation;
 
-public class InterviewStrategy extends TranslationContext implements Strategy {
+public class InterviewStrategy extends BroadcastContext implements Strategy {
     public void add(Record record){
 
         Interview rec = (Interview) record;
@@ -11,21 +11,21 @@ public class InterviewStrategy extends TranslationContext implements Strategy {
             DataBroadcast.playListTimeMillisecond += time;
             DataBroadcast.income += interviewPrice * time;
             DataBroadcast.painingContentTimeMillisecond += time;
+            System.out.println("Интервью запланировано.");
         }
     }
     public boolean check(Record record) {
 
 
-        Interview interviewRec = (Interview) this.record;
+        Interview interviewRec = (Interview) record;
         int timeRecordMillisecond = Integer.parseInt(interviewRec.minutesRecordingTime()) * 60 * 1000;
-        if (
-                timeRecordMillisecond > DataBroadcast.translationTimeMillisecond ||
-                        timeRecordMillisecond + DataBroadcast.painingContentTimeMillisecond > DataBroadcast.translationTimeMillisecond / 2 ||
-                        DataBroadcast.playListTimeMillisecond + timeRecordMillisecond > DataBroadcast.translationTimeMillisecond
-        ) {
-            return false;
-        } else {
-            return true;
-        }
+
+        return timeRecordMillisecond < DataBroadcast.translationTimeMillisecond &&
+                        timeRecordMillisecond + DataBroadcast.painingContentTimeMillisecond < DataBroadcast.translationTimeMillisecond / 2 &&
+                        DataBroadcast.playListTimeMillisecond + timeRecordMillisecond < DataBroadcast.translationTimeMillisecond;
+    }
+    public void play(Record record) {
+        Interview interviewRec = (Interview) record;
+        System.out.printf ("Интервью: длительность %s минут, имя дащего интервью %s.\n", interviewRec.minutesRecordingTime(), interviewRec.nameInterviewee());
     }
 }
